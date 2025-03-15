@@ -1,4 +1,5 @@
 import torch
+import matplotlib.pyplot as plt
 
 # Generate synthetic data
 torch.manual_seed(42)  # For reproducibility
@@ -40,3 +41,8 @@ for epoch in range(epochs):
 
 # Final parameters
 print(f"Trained parameters: w = {w.item():.4f}, b = {b.item():.4f}")
+
+# Plot the results
+plt.figure(figsize=(12, 6))
+plt.scatter(X.numpy(), y.numpy(), label="Data points")  # plot the data points
+plt.show()
