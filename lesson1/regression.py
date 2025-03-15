@@ -42,15 +42,19 @@ for epoch in range(epochs):
 # Final parameters
 print(f"Trained parameters: w = {w.item():.4f}, b = {b.item():.4f}")
 
-# Plot the results
+
+# Visualize results
 plt.figure(figsize=(12, 6))
 plt.scatter(X.numpy(), y.numpy(), label="Data points")  # plot the data points
+plt.plot(
+    X.numpy(), (true_w * X + true_b).numpy(), color="green", label="True line"
+)  # plot the true line
 plt.plot(
     X.numpy(), (w + X + b).detach().numpy(), color="red", label="Regression line"
 )  # plot the regression line
 plt.xlabel("X")
 plt.ylabel("y")
-plt.title("Linear Regression with Pytorch")
+plt.title("True Line")
 plt.legend()
 plt.grid(True)
 plt.show()
